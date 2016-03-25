@@ -4,11 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Networking.PushNotifications;
+using Windows.System.Threading;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -25,6 +29,8 @@ namespace ECGCAT_IoT_Notification_Client
     /// </summary>
     sealed partial class App : Application
     {
+        public EventHandler<IActivatedEventArgs> Activated;
+        
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -54,6 +60,7 @@ namespace ECGCAT_IoT_Notification_Client
 #endif
 
             InitNotificationsAsync();
+
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
@@ -84,6 +91,34 @@ namespace ECGCAT_IoT_Notification_Client
             // Ensure the current window is active
             Window.Current.Activate();
         }
+
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            //Find out if this is activated from a toast;      
+
+            if(args.Kind == ActivationKind.ToastNotification)      {
+                //Get the pre-defined arguments and user inputs from the eventargs;        
+                var toastArgs = args as ToastNotificationActivatedEventArgs;
+                //Get arguments corresponding to this activation;          
+                //When tapping the body of the toast caused this activation, the app receives the value of “launch” property of <toast>;         
+                //When the activation is caused by using tapping on an action inside the toast, the app receives the value of “arguments” property of <action>;          
+
+                var arguments = toastArgs.Argument;
+
+                if (arguments == "details")
+                {
+                    
+                }
+
+                //var input = toastArgs.UserInput[“1”];
+
+                //Perform tasks;          
+            }
+
+            //...  
+
+        }
+
 
         /// <summary>
         /// Invoked when Navigation to a certain page fails
@@ -124,6 +159,17 @@ namespace ECGCAT_IoT_Notification_Client
                 await dialog.ShowAsync();
             }
 
+        }
+
+        private async void UpdateAppAsync(object sender, IActivatedEventArgs e)
+        {
+            
+            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, delegate
+            {
+                
+            });
+
+            
         }
     }
 }
