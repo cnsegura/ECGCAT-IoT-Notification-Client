@@ -13,9 +13,12 @@
             <Grid Background="Transparent">
                 <Ellipse x:Name="StatusButton" Fill="Green" Stroke="White" Width="100" Height="100" Margin="10"/>
                 <SymbolIcon x:Name="Icon" Symbol="Accept" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <Image x:Name="FireIcon" Visibility="Collapsed" Width="100" Height="100" Margin="10" Source="Assets/fire-vector.png" />
             </Grid>
-            <TextBlock x:Name="VendingStatus" Text="Status:" Margin="10,50,10,10" TextAlignment="Center" FontSize="26.667" />
-            <TextBlock x:Name="InfoBlock" Text="" Margin="10,50,10,10" TextAlignment="Center" FontSize="26.667" />
+            <TextBlock x:Name="VendingStatus" Text="Status:" Margin="10,20,10,10" TextAlignment="Center" FontSize="26.667" />
+            <TextBlock x:Name="InfoBlock" Text="" Margin="10,20,10,10" TextAlignment="Center" FontSize="26.667" />
+            <Button x:Name="Details" Height="52" Width="550" Margin="10,10,10,10" BorderThickness="1" BorderBrush="Gray" Foreground="White" Content="Details"/>
+            <Button x:Name="TakeAction" Height="52" Width="550" Margin="10,10,10,10" BorderThickness="1" BorderBrush="Gray" Foreground="white" Content="Shutdown"/>
         </StackPanel>
     </Grid>
 </Page>

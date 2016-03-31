@@ -51,7 +51,8 @@ namespace ECGCAT_IoT_Notification_Client
             await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, delegate
             {
                 StatusButton.Fill = redBrush;
-                Icon.Symbol = Symbol.Important;
+                //Icon.Symbol = Symbol.Important;
+                FireIcon.Visibility = Visibility.Visible; 
             });
         }
         private void Initialize()
