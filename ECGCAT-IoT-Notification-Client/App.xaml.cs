@@ -105,10 +105,11 @@ namespace ECGCAT_IoT_Notification_Client
 
                 var arguments = toastArgs.Argument;
 
-                if (arguments == "details")
+                if (Activated != null)
                 {
-                    
+                    Activated(this, args);   
                 }
+                
 
                 //var input = toastArgs.UserInput[“1”];
 

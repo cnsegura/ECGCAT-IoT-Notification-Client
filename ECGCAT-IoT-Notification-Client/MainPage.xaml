@@ -12,7 +12,7 @@
             <TextBlock x:Name="Title" Text="Contoso Vending Co." Margin="10,50,10,10" TextAlignment="Center" FontSize="26.667" />
             <Grid Background="Transparent">
                 <Ellipse x:Name="StatusButton" Fill="Green" Stroke="White" Width="100" Height="100" Margin="10"/>
-                <SymbolIcon Symbol="Accept" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <SymbolIcon x:Name="Icon" Symbol="Accept" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </Grid>
             <TextBlock x:Name="VendingStatus" Text="Status:" Margin="10,50,10,10" TextAlignment="Center" FontSize="26.667" />
             <TextBlock x:Name="InfoBlock" Text="" Margin="10,50,10,10" TextAlignment="Center" FontSize="26.667" />
